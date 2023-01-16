@@ -32,16 +32,6 @@ app.post("/signup", async (req, res) => {
   const email = req.body.email1;
   const pass = req.body.password1;
 
-  const data = new Collection({
-    email: email,
-    password: pass,
-  });
-
-  data.save().then(() => {
-    console.log("meow");
-  });
-
-
 
   try {
     const check = await Collection.findOne({ email: email });
@@ -50,6 +40,14 @@ app.post("/signup", async (req, res) => {
       res.json("exist");
     } else {
       res.json("notexist");
+      const data = new Collection({
+        email: email,
+        password: pass
+      });
+    
+      data.save().then(() => {
+        console.log("meow");
+      });
     //   await Collection.insertMany[data]
     }
   } catch (e) {

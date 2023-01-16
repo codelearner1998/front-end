@@ -13,7 +13,7 @@ function Signup() {
 
     try {
       await axios
-        .post("http://localhost:8000", {
+        .post("http://localhost:8000/signup", {
           email1,
           password1
         })
@@ -39,7 +39,7 @@ function Signup() {
 
   return (
     <div>
-      <form action="/">
+      <form action="/signup">
         <h1> Signup Page</h1>
         <label>Email </label>
         <input
